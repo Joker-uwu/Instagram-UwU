@@ -1,45 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:notification_angelnahuat/pages/homepage.dart';
-import 'package:notification_angelnahuat/pages/mensajepage.dart';
-import 'package:notification_angelnahuat/services/push_not_serv.dart';
+import 'package:instagram_clone/page/home_page.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await PushNotService.initializeApp();
-
+void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  final GlobalKey<NavigatorState> navkey = GlobalKey<NavigatorState>();
-  @override
-  void initState() {
-    super.initState();
-
-    PushNotService.messagesStream.listen((data) {
-      print('MyApp: $data');
-      navkey.currentState?.pushNamed('mensaje', arguments: data);
-    });
-  }
-
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      navigatorKey: navkey,
-      initialRoute: 'home',
+      title: 'Instagram Clone',
       debugShowCheckedModeBanner: false,
-      routes: {
-        'home': (BuildContext c) => HomePage(),
-        'mensaje': (BuildContext c) => MensajePage()
-      },
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: HomePage(),
     );
   }
 }

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(notification_angelnahuat LANGUAGES CXX)
+project(instagram_clone LANGUAGES CXX)
 
-set(BINARY_NAME "notification_angelnahuat")
+set(BINARY_NAME "instagram_clone")
 
 cmake_policy(SET CMP0063 NEW)
 

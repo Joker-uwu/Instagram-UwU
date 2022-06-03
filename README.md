@@ -1,4 +1,4 @@
-# notification_angelnahuat
+# instagram_clone
 
 A new Flutter project.
 
